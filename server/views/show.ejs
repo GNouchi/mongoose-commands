@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+        <a href="/">Displays all the objects</a><br>
+        <a disabled href="/obj/:id">Displays all the information about one Object</a><br>
+        <a href="/obj/new"> Page with form to make new Object </a><br>
+        <a href="/obj/edit/:id"> Edit show a form to edit an existing mongoose</a><br>
+
+    <h2> This is the show page: id remains fully obfuscated</h2>
+        
+    <%if(data.message == undefined){%>        
+    
+    <p>    _id : <%=data._id%></p>        
+    <p>    name : <%=data.name%></p>        
+    <p>    description : <%=data.description%></p>        
+    <p>    createdAt : <%=data.createdAt%></p>        
+    <p>    updatedAt : <%=data.updatedAt%></p>            
+    <form action="/obj/destroy/<%=data._id%>" method="post">
+        <input type="hidden" name="_id" value ="<%=data._id%>">
+        <button type="submit">Delete</button>
+    </form>
+    
+    <%}else{%> <h3><%=data.message%></h3> <%}%>
+
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+        <a href="/">Displays all the objects</a><br>
+        <a disabled href="/obj/:id">Displays all the information about one Object</a><br>
+        <a href="/obj/new"> Page with form to make new Object </a><br>
+        <a href="/obj/edit/:id"> Edit show a form to edit an existing mongoose</a><br>
+
+
+
+    <h2> This is the edit page</h2>
+
+    <%if(data.message == undefined){%>        
+
+    <p>Created: <%=data.createdAt%></p>
+    <p>Last Update: <%=data.updatedAt%></p>
+    <form action="/obj/<%=data.id%>" method="post">
+        <input type="text" name="id" value="<%=data.id%>"> => ID<br>
+        <input type="text" name="name" value="<%=data.name%>"> => Name<br>
+        <input type="text" name="description" value="<%=data.description%>"> => Description<br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <%}else{%> <h3><%=data.message%></h3> <%}%>
+
+
+    
+</body>
+</html>

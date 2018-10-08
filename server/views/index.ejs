@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>.box{border:1px solid silver; padding:5px;}</style>
+</head>
+<body>
+        <a href="/">Displays all the objects</a><br>
+        <a disabled href="/obj/:id">Displays all the information about one Object</a><br>
+        <a href="/obj/new"> Page with form to make new Object </a><br>
+        <a href="/obj/edit/:id"> Edit show a form to edit an existing mongoose</a><br>
+
+
+
+    <h2> This is the index page</h2>
+
+    <%for(let x of data){%>
+        <p class="box">
+            <a href="obj/<%=x._id%>">To Show Page</a>
+            <%=x%>
+            <a href="obj/edit/<%=x._id%>">To Edit Page</a>
+            <form action="/obj/destroy/<%=x._id%>" method="post">
+                <input type="hidden" name="_id" value ="<%=x._id%>">
+                <button type="submit">Delete <%=x.name%></button>
+            </form>
+        </p>
+    <%}%>
+
+</body>
+</html>
